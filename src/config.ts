@@ -86,6 +86,7 @@ const config = {
   gcpApiKey: process.env.GCP_API_KEY,
   gcpKeyFile: generateGcpKeyFile(),
   gcpProject: process.env.GCP_PROJECT,
+  digitalOceanToken: process.env.DIGITALOCEAN_TOKEN,
 };
 
 export default config;

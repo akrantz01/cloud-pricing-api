@@ -1,0 +1,38 @@
+# Get the price for a professional tier Apps instance in the Amsterdam DC
+
+query {
+  products(
+    filter: {
+      vendorName: "digitalocean"
+      service: "Apps"
+      productFamily: "professional"
+      region: "ams3"
+      attributeFilters: [
+        { key: "cpuType", value: "SHARED" }
+        { key: "cpus", value: "1" }
+        { key: "memory", value: "1024" }
+      ]
+    }
+  ) {
+    prices(
+      filter: {
+        unit: "monthly"
+      }
+    ) { USD }
+  }
+}
+
+# Response
+#{
+#  "data": {
+#    "products": [
+#      {
+#        "prices": [
+#          {
+#            "USD": "12"
+#          }
+#        ]
+#      }
+#    ]
+#  }
+#}

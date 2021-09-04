@@ -3,6 +3,7 @@ import config from '../config';
 import awsBulk from '../scrapers/awsBulk';
 import awsSpot from '../scrapers/awsSpot';
 import azureRetail from '../scrapers/azureRetail';
+import digitaloceanApps from '../scrapers/digitaloceanApps';
 import gcpCatalog from '../scrapers/gcpCatalog';
 import gcpMachineTypes from '../scrapers/gcpMachineTypes';
 import { setPriceUpdateFailed, setPriceUpdateSuccessful } from '../stats/stats';
@@ -21,6 +22,9 @@ const Scrapers = {
   azure: {
     retail: azureRetail.scrape,
   },
+  digitalocean: {
+    apps: digitaloceanApps.scrape,
+  },
   gcp: {
     catalog: gcpCatalog.scrape,
     machineTypes: gcpMachineTypes.scrape,
@@ -30,7 +34,7 @@ const Scrapers = {
 async function run(): Promise<void> {
   const { argv } = yargs
     .usage(
-      'Usage: $0 --only=[aws:bulk,aws:spot,azure:retail,gcp:catalog,gcp:machineTypes]'
+      'Usage: $0 --only=[aws:bulk,aws:spot,azure:retail,digitalocean:apps,gcp:catalog,gcp:machineTypes]'
     )
     .options({
       only: { type: 'string' },
