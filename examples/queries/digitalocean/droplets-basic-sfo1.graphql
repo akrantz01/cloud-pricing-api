@@ -1,0 +1,36 @@
+# Get the price for a basic droplet in the San Francisco 1 DC
+
+query {
+  products(
+    filter: {
+      vendorName: "digitalocean"
+      service: "Droplets"
+      productFamily: "Basic"
+      region: "sfo1"
+      attributeFilters: [
+        { key: "memory", value: "1024" }
+      ]
+    }
+  ) {
+    prices(
+      filter: {
+        unit: "monthly"
+      }
+    ) { USD }
+  }
+}
+
+# Response
+#{
+#  "data": {
+#    "products": [
+#      {
+#        "prices": [
+#          {
+#            "USD": "5"
+#          }
+#        ]
+#      }
+#    ]
+#  }
+#}

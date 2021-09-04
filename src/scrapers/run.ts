@@ -4,6 +4,7 @@ import awsBulk from './awsBulk';
 import awsSpot from './awsSpot';
 import azureRetail from './azureRetail';
 import digitaloceanApps from './digitaloceanApps';
+import digitaloceanDroplets from './digitaloceanDroplets';
 import gcpCatalog from './gcpCatalog';
 import gcpMachineTypes from './gcpMachineTypes';
 
@@ -23,6 +24,7 @@ const Scrapers = {
   },
   digitalocean: {
     apps: digitaloceanApps.scrape,
+    droplets: digitaloceanDroplets.scrape,
   },
   gcp: {
     catalog: gcpCatalog.scrape,
@@ -33,7 +35,7 @@ const Scrapers = {
 async function run(): Promise<void> {
   const { argv } = yargs
     .usage(
-      'Usage: $0 --only=[aws:bulk,aws:spot,azure:retail,digitalocean:apps,gcp:catalog,gcp:machineTypes]'
+      'Usage: $0 --only=[aws:bulk,aws:spot,azure:retail,digitalocean:apps,digitalocean:droplets,gcp:catalog,gcp:machineTypes]'
     )
     .options({
       only: { type: 'string' },
