@@ -40,7 +40,7 @@
     "@graphql-tools/utils": "^6.2.4",
     "apollo-server-core": "^3.1.2",
     "apollo-server-express": "^3.1.2",
-    "apollo-server-plugin-base": "^3.1.1",
+    "apollo-server-plugin-base": "^3.2.0",
     "async-mutex": "^0.3.1",
     "axios": "^0.21.1",
     "decimal.js": "^10.3.1",
